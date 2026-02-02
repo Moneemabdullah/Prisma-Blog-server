@@ -1,6 +1,6 @@
 import readline from "node:readline";
 import { prisma } from "../lib/prisma";
-import { userRole } from "../middleware/auth";
+import { UserRole } from "../middlewares/auth";
 
 const rl = readline.createInterface({
     input: process.stdin,
@@ -29,7 +29,7 @@ async function seedSuperUser() {
             name: name || "admin",
             email,
             password,
-            role: userRole.ADMIN,
+            role: UserRole.ADMIN,
         };
 
         console.log("**** Checking for existing SuperUser ****");
